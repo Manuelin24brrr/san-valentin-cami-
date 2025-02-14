@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Para mi amor </title>
+    <title>Para mi amor 💖</title>
     <style>
         * {
             margin: 0;
@@ -52,10 +52,21 @@
         button:hover {
             background: darkred;
         }
+        #playButton {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(255, 0, 0, 0.8);
+            padding: 10px 15px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <video autoplay loop muted>
+    <video id="video" autoplay loop>
         <source src="camivideo.mp4" type="video/mp4">
         Tu navegador no soporta videos.
     </video>
@@ -64,5 +75,15 @@
 </h1>
         <button onclick="alert('Gracias por aceptar ser mi San Valentín, pequeña. Te amo ')">Sí, quiero ser tu San Valentín </button>
     </div>
+    <button id="playButton">🎶 Activar sonido</button>
+
+    <script>
+        document.getElementById("playButton").addEventListener("click", function() {
+            let video = document.getElementById("video");
+            video.muted = false;
+            video.play();
+            this.style.display = "none"; // Oculta el botón después de hacer clic
+        });
+    </script>
 </body>
 </html>
